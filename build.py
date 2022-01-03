@@ -26,7 +26,9 @@ for file in directories:
    mdlist.append(file)
    
 print(mdlist)
-
+import markdown
+html = markdown.markdown('This is a *test* string')
+print(html)
 with open("md/readme.md", "r", encoding="utf-8") as input_file:
     text = input_file.read()
 html = markdown.markdown(text)
