@@ -11,12 +11,26 @@ mdlist=[]
 # This installs all the dependencies on build machine
 def install_dependencies():
    os.system('pip install markdown')
+   print('Requirements Complete')
    
-install_dependencies
+def perform_cleanup():
+   #remove build.py andother md files
+   print('Deployment Complete')
+   
+install_dependencies()
+'''# For Hosting on Personal Server
+perform_cleanup()'''
 # This would print all the files and directories
 for file in directories:
    print("Recd. "+file)
    mdlist.append(file)
-  
+   
 print(mdlist)
+
+with open("md/readme.md", "r", encoding="utf-8") as input_file:
+    text = input_file.read()
+html = markdown.markdown(text)
+with open("docs/index.html", "w", encoding="utf-8", errors="xmlcharrefreplace") as output_file:
+    output_file.write(html)
+
     
